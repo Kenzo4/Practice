@@ -1,4 +1,4 @@
-package Multithreading;
+package Multithreading.Singlethreading;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
