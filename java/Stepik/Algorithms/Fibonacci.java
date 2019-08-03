@@ -1,19 +1,31 @@
 package Stepik.Algorithms;
 
+import java.math.BigInteger;
+
 public class Fibonacci {
-   public static int fibonacci(int n){
-       if(n <= 1){
-           return n;
-       }else{
-           int[] fib = new int[n + 1];
+    private static final int MOD = (int) 1e9 + 7;
+    public int fibonacci(int n){
+        int a = 0;
+        int b = 1;
 
-           fib[0] = 1;
-           fib[1] = 1;
+        for(int i = 0; i < n; i++){
+            int c = a + b;
+            //If needed find fibonacci number modulo use code below and MOD constant
+            //int c = (a + b) % MOD;
+            a = b;
+            b = c;
+        }
+        return a;
+    }
 
-           for(int i = 2; i < fib.length; i++){
-               fib[i] = fib[i - 1] + fib[i - 2];
-           }
-           return fib[n];
-       }
+    public void run(int n){
+       System.out.println(n + ": " + fibonacci(n));
    }
+
+    public static void main(String[] args) {
+           long startTime = System.currentTimeMillis();
+           new Fibonacci().run(100);
+           long finishTime = System.currentTimeMillis();
+           System.out.println(finishTime - startTime + " ms");
+    }
 }
