@@ -1,18 +1,16 @@
 package com.codewars;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class ReverseSort {
-    public static int[] reverseSort(int[] array){
-        List<Integer> int_array = new ArrayList<>();
+    public static int[] descendingSort(int[] array){
+        List<Integer> data_array = Arrays.stream(array).boxed().collect(Collectors.toList());
 
-        for(int i : array){
-            int_array.add(i);
-        }
+        Collections.sort(data_array, Collections.reverseOrder());
 
-        Collections.sort(int_array, Collections.reverseOrder());
+        array = data_array.stream().mapToInt(Integer::intValue).toArray();
+
         return array;
     }
 }
